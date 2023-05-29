@@ -1,9 +1,11 @@
-import React from 'react';
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
+import DealerHand from "./Components/DealerHand";
 
 function App() {
   return (
-    <Container >
+    <Container>
+      <DealerHand />
       <h1>Hello World. It's me.</h1>
     </Container>
   );
@@ -18,12 +20,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   background-color: green;
-`
-
-
+`;
 
 // Export
 export default App;
