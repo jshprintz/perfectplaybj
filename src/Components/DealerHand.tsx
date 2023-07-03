@@ -1,13 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import DisplayCard from "./DisplayCard";
+import GetRandomCard from "../Utilities/GetRandomCard";
 
+const DealerHand = () => {
+  const cardOne = GetRandomCard();
+  const cardTwo = GetRandomCard();
 
-
-function DealerHand() {
   return (
     <Container>
-      <CardContainer>Card One</CardContainer>
-      <CardContainer>Card Two</CardContainer>
+      <DisplayCard imageUrl={cardOne} />
+      <DisplayCard imageUrl={cardTwo} />
     </Container>
   );
 }
@@ -22,18 +25,6 @@ const Container = styled.div`
   justify-content: center;
   gap: 10px;
 `;
-
-const CardContainer = styled.div`
-  height: 350px;
-  width: 225px;
-  border: 5px solid black;
-  background-color: red;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`
 
 // Export
 export default DealerHand;
