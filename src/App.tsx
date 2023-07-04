@@ -7,6 +7,14 @@ function App() {
   return (
     <Container>
       <DealerHand />
+      <div
+        style={{
+          width: "80%",
+          height: "20px",
+          borderBottom: "2px solid black",
+          borderRadius: "10px",
+        }}
+      ></div>
       <PlayerHand />
     </Container>
   );
@@ -21,7 +29,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 
   background-color: green;
 `;

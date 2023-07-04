@@ -1,29 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import DisplayCard from "./DisplayCard";
 import GetRandomCard from "../Utilities/GetRandomCard";
 
 const PlayerHand = () => {
-  const cardOne = GetRandomCard();
-  const cardTwo = GetRandomCard();
+  const [cardOne, setCardOne] = useState(GetRandomCard());
+  const [cardTwo, setCardTwo] = useState(GetRandomCard());
+
+  const handleDealClick = () => {
+    setCardOne(GetRandomCard());
+    setCardTwo(GetRandomCard());
+  };
 
   return (
     <Container>
-      <DisplayCard imageUrl={cardOne} />
-      <DisplayCard imageUrl={cardTwo} />
+      <h2>Player's Cards</h2>
+      <CardContainer>
+        <DisplayCard imageUrl={cardOne} />
+        <DisplayCard imageUrl={cardTwo} />
+      </CardContainer>
+      <DealBtn onClick={() => handleDealClick()}>DEAL</DealBtn>
     </Container>
   );
-}
+};
 
 // Styled Components
-const Container = styled.div`
+const CardContainer = styled.div`
   width: 100%;
-
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 10px;
+`;
+
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const DealBtn = styled.button`
+  border-radius: 10px;
+  background-color: #fff;
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
 `;
 
 // Export
