@@ -16,6 +16,7 @@ import PlayerHand from "./Components/PlayerHand";
 // 1. Add a statistics system
 // 2. Readjust the UI to be more user friendly
 // 3. Add some light animations
+// 4. Make everything mobile friendly
 
 // Part Three:
 // 1. Add a currency system
