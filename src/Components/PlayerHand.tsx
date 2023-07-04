@@ -46,8 +46,8 @@ const PlayerHand = () => {
       <h2>{playerScore}</h2>
       <h3>{action}</h3>
       <CardContainer>
-        {playerData.cards.map((card) => {
-          return <DisplayCard imageUrl={card.cardData.source} />;
+        {playerData.cards.map((card, i) => {
+          return <DisplayCard key={`player-card-${i+1}`} imageUrl={card.cardData.source} />;
         })}
       </CardContainer>
       <ButtonContainer>

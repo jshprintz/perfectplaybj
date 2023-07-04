@@ -46,8 +46,13 @@ const DealerHand = () => {
       <h2>{dealerScore}</h2>
       <h3>{action}</h3>
       <CardContainer>
-        {dealerData.cards.map((card) => {
-          return <DisplayCard imageUrl={card.cardData.source} />;
+        {dealerData.cards.map((card, i) => {
+          return (
+            <DisplayCard
+              key={`player-card-${i + 1}`}
+              imageUrl={card.cardData.source}
+            />
+          );
         })}
       </CardContainer>
       <ButtonContainer>
