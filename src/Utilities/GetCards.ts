@@ -53,8 +53,19 @@ import aceClubs from "../Assets/cards/cardClubs_A.png";
 import aceHearts from "../Assets/cards/cardHearts_A.png";
 import aceSpades from "../Assets/cards/cardSpades_A.png";
 
+// Explanation of object structure:
+// source: string; // The path to the image
+// name: string; // The name of the card
+// value: number; // The value of the card
+
+type Card = {
+  source: string;
+  name: string;
+  value: number;
+};
+
 const GetCards = () => {
-  const cardData = [
+  const cardData: Card[] = [
     { source: back, name: "back", value: 0 },
     { source: twoDiamonds, name: "2d", value: 2 },
     { source: twoClubs, name: "2c", value: 2 },
