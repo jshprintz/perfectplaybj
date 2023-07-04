@@ -6,22 +6,39 @@ import GetRandomCard from "../Utilities/GetRandomCard";
 const PlayerHand = () => {
   const [cardOne, setCardOne] = useState(GetRandomCard());
   const [cardTwo, setCardTwo] = useState(GetRandomCard());
+  const [action, setAction] = useState<string>("Opening Action");
+
+  const playerData = {
+    cards: [cardOne, cardTwo],
+    score: cardOne.cardData.value + cardTwo.cardData.value,
+  };
+  const score: string = `Player Score ${playerData.score}`;
 
   const handleDealClick = () => {
     setCardOne(GetRandomCard());
     setCardTwo(GetRandomCard());
+    setAction("Player Re-Deals");
   };
 
-  console.log(cardOne, cardTwo);
+  const handleStandClick = () => {
+    setAction("Player Stands");
+  };
 
   return (
     <Container>
-      <h2>Player's Cards</h2>
+      <h2>{score}</h2>
+      <h3>{action}</h3>
       <CardContainer>
-        <DisplayCard imageUrl={cardOne.randomCard.source} />
-        <DisplayCard imageUrl={cardTwo.randomCard.source} />
+        {playerData.cards.map((card) => {
+          return <DisplayCard imageUrl={card.cardData.source} />;
+        }
+        )}
       </CardContainer>
-      <DealBtn onClick={() => handleDealClick()}>DEAL</DealBtn>
+      <ButtonContainer>
+        <Button onClick={() => handleDealClick()}>RE-DEAL</Button>
+        <Button onClick={() => handleDealClick()}>HIT</Button>
+        <Button onClick={() => handleStandClick()}>STAND</Button>
+      </ButtonContainer>
     </Container>
   );
 };
@@ -35,6 +52,7 @@ const CardContainer = styled.div`
   justify-content: center;
   gap: 10px;
 `;
+const ButtonContainer = styled(CardContainer)``;
 
 const Container = styled.div`
   width: 100%;
@@ -44,13 +62,19 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const DealBtn = styled.button`
+const Button = styled.button`
   border-radius: 10px;
   background-color: #fff;
   color: #000;
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
 `;
 
 // Export

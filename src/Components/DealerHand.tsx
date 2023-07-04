@@ -4,6 +4,7 @@ import DisplayCard from "./DisplayCard";
 import GetRandomCard from "../Utilities/GetRandomCard";
 
 const DealerHand = () => {
+
   const [cardOne, setCardOne] = useState(GetRandomCard());
   const [cardTwo, setCardTwo] = useState(GetRandomCard());
 
@@ -16,8 +17,8 @@ const DealerHand = () => {
     <Container>
       <h2>Dealer's Cards</h2>
       <CardContainer>
-        <DisplayCard imageUrl={cardOne.randomCard.source} />
-        <DisplayCard imageUrl={cardTwo.randomCard.source} />
+        <DisplayCard imageUrl={cardOne.cardData.source} />
+        <DisplayCard imageUrl={cardTwo.cardData.source} />
       </CardContainer>
       <DealBtn onClick={() => handleDealClick()}>DEAL</DealBtn>
     </Container>
