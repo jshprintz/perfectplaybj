@@ -16,8 +16,8 @@ const DealerHand = () => {
     <Container>
       <h2>Dealer's Cards</h2>
       <CardContainer>
-        <DisplayCard imageUrl={cardOne.source} />
-        <DisplayCard imageUrl={cardTwo.source} />
+        <DisplayCard imageUrl={cardOne.randomCard.source} />
+        <DisplayCard imageUrl={cardTwo.randomCard.source} />
       </CardContainer>
       <DealBtn onClick={() => handleDealClick()}>DEAL</DealBtn>
     </Container>

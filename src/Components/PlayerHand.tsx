@@ -12,12 +12,14 @@ const PlayerHand = () => {
     setCardTwo(GetRandomCard());
   };
 
+  console.log(cardOne, cardTwo);
+
   return (
     <Container>
       <h2>Player's Cards</h2>
       <CardContainer>
-        <DisplayCard imageUrl={cardOne.source} />
-        <DisplayCard imageUrl={cardTwo.source} />
+        <DisplayCard imageUrl={cardOne.randomCard.source} />
+        <DisplayCard imageUrl={cardTwo.randomCard.source} />
       </CardContainer>
       <DealBtn onClick={() => handleDealClick()}>DEAL</DealBtn>
     </Container>
